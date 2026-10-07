@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{{ app_name }}</title><link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+<div id="auth" class="auth-shell">
+  <section class="auth-card">
+    <div class="brand">PROJECT CENTER</div><h1>Central de projetos</h1><p class="muted">Projetos, logística e pendências em um único ambiente.</p>
+    <div class="tabs">
+      <button class="tab active" data-auth="login">Entrar</button>
+      <button class="tab" data-auth="register">Primeiro acesso</button>
+      <button class="tab" data-auth="migrated">Conta migrada</button>
+    </div>
+    <form id="loginForm" class="form"><input name="login" placeholder="Usuário, e-mail ou crachá" required><input name="password" type="password" placeholder="Senha" required><button>Entrar</button><a href="#" id="forgot">Esqueci minha senha</a></form>
+    <form id="registerForm" class="form hidden"><input name="full_name" placeholder="Nome completo" required><input name="email" type="email" placeholder="E-mail" required><input name="username" placeholder="Nome de usuário" required><input name="badge" placeholder="Crachá" required><input name="password" type="password" minlength="8" placeholder="Senha (mínimo 8 caracteres)" required><input name="confirm" type="password" minlength="8" placeholder="Confirmar senha" required><button>Cadastrar</button></form>
+    <form id="migratedForm" class="form hidden">
+      <input name="username" placeholder="Usuário da V5" required>
+      <input name="activation_code" placeholder="Código de ativação da migração" required>
+      <input name="full_name" placeholder="Nome completo" required>
+      <input name="email" type="email" placeholder="E-mail" required>
+      <input name="badge" placeholder="Crachá" required>
+      <input name="password" type="password" minlength="8" placeholder="Nova senha (mínimo 8 caracteres)" required>
+      <input name="confirm" type="password" minlength="8" placeholder="Confirmar senha" required>
+      <button>Ativar conta migrada</button>
+    </form>
+    <div id="authMsg" class="msg"></div>
+  </section>
+</div>
+<div id="app" class="app hidden">
+  <aside class="sidebar"><div class="brand side"><span class="brand-mark">PC</span><span>PROJECT CENTER</span></div><nav><button data-view="dashboard" class="nav active">Visão geral</button><button data-view="projects" class="nav">Projetos</button><button data-view="notifications" class="nav">Notificações <span id="notifBadge"></span></button><button data-view="materials" class="nav">Banco de insumos</button><button data-view="admin" class="nav admin-only">Administração</button></nav><div class="side-user"><strong id="userName"></strong><span id="userRole"></span><button id="logout">Sair</button></div></aside>
+  <main><header><div><h2 id="viewTitle">Project Center</h2><p id="viewSubtitle">Acompanhe projetos abertos e pendências</p></div><div class="header-actions"><input id="globalSearch" placeholder="Buscar OS, projeto, insumo, usuário..."><button id="refresh">Atualizar</button></div></header><section id="content"></section></main>
+</div>
+<div id="modal" class="modal hidden"><div class="modal-card"><button id="closeModal" class="close">×</button><div id="modalBody"></div></div></div>
+<script src="/static/app.js"></script>
+</body></html>

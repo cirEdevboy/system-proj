@@ -1,0 +1,94 @@
+# SOMENTE PARA TESTES.
+# Render Free Web Services podem dormir após 15 min sem tráfego.
+# Free Postgres expira após 30 dias e não possui backups.
+#
+# O heartbeat interno abaixo consulta o próprio endpoint público
+# aproximadamente a cada 14 minutos enquanto a instância estiver ativa.
+# Isso é um recurso de teste/monitoramento, NÃO garantia de uptime 24h.
+
+services:
+  - type: web
+    name: system-proj-api-free
+    runtime: python
+    plan: free
+    region: ohio
+    rootDir: SYSTEM_PROJ_V6_5_ONLINE/server
+    buildCommand: pip install -r requirements.txt
+    startCommand: python start_render.py
+    healthCheckPath: /api/v1/health
+    autoDeployTrigger: commit
+    envVars:
+      - key: ENV
+        value: render-free-test
+
+      - key: DATABASE_URL
+        fromDatabase:
+          name: system-proj-db-free
+          property: connectionString
+
+      - key: JWT_SECRET
+        generateValue: true
+
+      - key: ACCESS_TOKEN_MINUTES
+        value: "60"
+
+      - key: REFRESH_TOKEN_DAYS
+        value: "30"
+
+      - key: CORS_ORIGINS
+        value: "*"
+
+      - key: STORAGE_MODE
+        value: s3
+
+      - key: S3_ENDPOINT
+        sync: false
+
+      - key: S3_BUCKET
+        sync: false
+
+      - key: S3_ACCESS_KEY
+        sync: false
+
+      - key: S3_SECRET_KEY
+        sync: false
+
+      - key: S3_REGION
+        value: auto
+
+      - key: MASTER_ADMIN_ENABLED
+        value: "true"
+
+      - key: MASTER_ADMIN_USERNAME
+        sync: false
+
+      - key: MASTER_ADMIN_EMAIL
+        sync: false
+
+      - key: MASTER_ADMIN_BADGE
+        sync: false
+
+      - key: MASTER_ADMIN_FULL_NAME
+        sync: false
+
+      - key: MASTER_ADMIN_PASSWORD
+        sync: false
+
+      - key: KEEPALIVE_ENABLED
+        value: "true"
+
+      - key: KEEPALIVE_INTERVAL_MINUTES
+        value: "14"
+
+      # Array adicional opcional separado por vírgulas.
+      # O próprio endereço do Render entra automaticamente no array.
+      - key: KEEPALIVE_URLS
+        value: ""
+
+databases:
+  - name: system-proj-db-free
+    plan: free
+    region: ohio
+    postgresMajorVersion: "18"
+    databaseName: systemproj
+    user: systemproj

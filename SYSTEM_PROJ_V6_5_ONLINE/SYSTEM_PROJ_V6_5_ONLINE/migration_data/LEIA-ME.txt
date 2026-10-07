@@ -1,0 +1,22 @@
+COLOQUE AQUI OS DADOS REAIS DA V5 ANTES DE MIGRAR.
+
+Obrigatório:
+  gestao_projetos.db
+
+Recomendado, se existirem:
+  DOCUMENTOS_PROJETOS\
+  TRANSFERENCIAS_GERADAS\
+
+Estrutura esperada:
+
+migration_data\
+├── gestao_projetos.db
+├── DOCUMENTOS_PROJETOS\
+│   ├── 600062002\
+│   └── ...
+└── TRANSFERENCIAS_GERADAS\
+    ├── ..._TRANSFERENCIA.xlsx
+    └── ...
+
+NÃO mova nem apague sua V5 original.
+Faça a migração usando uma CÓPIA desses arquivos.

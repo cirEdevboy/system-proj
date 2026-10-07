@@ -1,0 +1,35 @@
+SYSTEM PROJ V6.3 — CLIENTE EMPRESA
+
+Este pacote NÃO contém banco de dados.
+Ele se conecta ao servidor que está rodando no PC de casa.
+
+1. No PC de casa:
+   INICIAR_CASA_COM_ACESSO_EMPRESA.bat
+
+2. Copie o link https://....trycloudflare.com exibido.
+
+3. No PC da empresa:
+   PREPARAR_CLIENTE_EMPRESA.bat
+
+4. Depois:
+   CONFIGURAR_LINK_SERVIDOR.bat
+
+5. Cole o link do PC de casa.
+
+6. Execute:
+   INICIAR_SYSTEM_PROJ_EMPRESA.bat
+
+Para a solicitação de transferência:
+- abra a OS;
+- aba Consumíveis / Transferência;
+- GERAR E ABRIR NO OUTLOOK;
+- o SYSTEM PROJ baixa a planilha;
+- Outlook abre com destinatários, assunto, corpo e anexo;
+- a assinatura padrão do Outlook é mantida;
+- o programa NÃO envia o e-mail;
+- depois de enviar manualmente, confirme no SYSTEM PROJ.
+
+O PC de casa precisa permanecer ligado e com a janela do servidor/túnel aberta.
+
+O link Quick Tunnel muda a cada reinicialização. Se mudar:
+execute CONFIGURAR_LINK_SERVIDOR.bat novamente.

@@ -1,0 +1,11 @@
+PARA MIGRAR A V5 NO TESTE CORPORATIVO:
+
+1. NAO mexa no banco original.
+2. Copie gestao_projetos.db para esta pasta.
+3. Se desejar migrar arquivos, copie tambem:
+   DOCUMENTOS_PROJETOS
+   TRANSFERENCIAS_GERADAS
+4. Execute MIGRAR_V5_CORPORATIVO.bat na raiz do pacote.
+
+O banco V6 de teste fica em:
+%LOCALAPPDATA%\SYSTEM_PROJ_V6_TEST

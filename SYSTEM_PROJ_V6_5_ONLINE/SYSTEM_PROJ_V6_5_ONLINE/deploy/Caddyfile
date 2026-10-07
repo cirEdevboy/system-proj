@@ -1,0 +1,4 @@
+{$DOMAIN:localhost} {
+    reverse_proxy api:8000
+    encode zstd gzip
+}
